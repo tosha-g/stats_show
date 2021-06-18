@@ -1,0 +1,40 @@
+body{
+    text-align: center;
+    color: darkred;
+    font-family: Century Light, serif;
+}
+
+img{
+    border-radius: 75%;
+}
+
+.slidebar {
+    max-width: 30%; /* Width of the outside container */
+    align-items: center;
+  }
+  
+  /* The slider itself */
+  .slider {
+   
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    border-style: outset;
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  #logo {
+    position: fixed;
+    top:0;
+    left: 0;
+  }
+
+  
