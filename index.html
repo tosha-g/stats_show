@@ -4,55 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGn69/xaS4f8WkuH/FpLh/xaS4f8WkuH/GIrT/xp+vf8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF5Pi/xeT4v8Xk+L/F5Pi/xeT4v8Xk+L/F5Pi/xeT4v8Xk+L/F5Pi/wAAAAAAAAAAAAAAAAAAAAAAAAAAGZXk/xmV5P8ZleT/GZXk/xmV5P8Z6///Gev//xmV5P8ZleT/GZXk/xmV5P8ZleT/AAAAAAAAAAAAAAAAAAAAABqW5f8aluX/Gpbl/xXo/f8V6v7/Fer+/xXq/v8V6v7/Gpbl/xqW5f8aluX/Gpbl/wAAAAAAAAAAAAAAAAAAAAAcmOf/HJjn/xyY5/8ejdT/Ho/Y/xHo/f8R6P3/Eej9/xHo/f8cmOf/HJjn/xyY5/8AAAAAAAAAAAAAAAAAAAAAHZrp/x2a6f8dmun/HZrp/wzn+/8M5/v/DOf7/wzn+/8dmun/HZrp/x2a6f8dmun/AAAAAAAAAAAAAAAAAAAAAB+b6v8fm+r/H5vq/wjl+v8I5fr/COX6/wjl+v8fm+r/H5vq/x+b6v8fm+r/H5vq/wAAAAAAAAAAAAAAAAAAAAAgnez/IJ3s/yCd7P8hld7/BOT5/wTk+f8E5Pn/BOT5/yCd7P8gnez/IJ3s/yCd7P8AAAAAAAAAAAAAAAAAAAAAAAAAACKe7f8inu3/Ip7t/yOS2f8E5Pn/BOT5/yKe7f8inu3/Ip7t/yKe7f8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjoO//I6Dv/yOg7/8joO//JJTb/yOf7f8joO//I6Dv/yOg7/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWh8PclofD/JaHw/yWh8P8lofD/JaHw/yWh8P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPN9/8jzff/I833/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAopfT/KKX0/yil9P8opfTHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAppvX/Kab1/ymm9f8ppvX/Kab1/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArqPf/AAAAAAAAAAAAAAAAK6j3/wAAAAApp/d3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8A8AAOAHAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADgBwAA4A8AAPAfAAD8fwAA/D8AAPg/AAD3fwAA//8AAA==" rel="icon" type="image/x-icon" />
     <title>Mortgage Calculator</title>
 </head>
 <body>
-    <header>
-        <img id="logo" src= "https://upload.wikimedia.org/wikipedia/commons/8/8b/How_to_Get_Away_with_Murder_logo.svg"/> 
+    <header class="header">
+        <img id="logo" src= "images/984px-How_to_Get_Away_with_Murder_logo.svg (1).png"/> 
+            <ul class="main-nav">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Learn More</a></li>
+                <li><a href="#">Your New Home</a></li>
+            </ul>
     </header>
-    <body>
+    <main>
         <section id="top">
             <span class="container">
             <div class="left ">
-                <p>How much is your down payment?</p>
-                <img class="icon" src= "https://unsplash.it/80/80" />
+                <img class="icon" src= "https://unsplash.it/80/80" /> 
+                <label for="down">How much is your down payment?</label>
+                <form action="index.html" method="post">
+                    <input type="number" id="down" name="down" required 
+                    min="1000" step="500">
+                </form>
+
             </div>
             <div class="right">
-                <p>What's the cost of your home?</p>
-                <img src= "https://unsplash.it/80/80" />
+                <img class="icon" src= "https://unsplash.it/80/80" />
+                <label for="home"> What's the cost of your home?</label>
+                <form action="index.html" method="post">
+                <input type="number" id="home" name="home_cost" required 
+                    min="1000" step="500">
+                </form>
             </div>
         </span>
             <div class="under">
+                <img class="icon" src= "https://unsplash.it/80/80" />
                 <p>This is how much you'll need to borrow</p>
-                <img src= "https://unsplash.it/80/80" />
+                
                 <details>
+                     <img class="icon" src= "https://unsplash.it/80/80" />
                      <p class="sub">Percent of total cost</p>
-                     <img src= "https://unsplash.it/80/80" />
+                     
                 </details>
             </div>
        </section>
        <section>
         <span class="container">
            <div class="left">
-                <p>What's the length of your repayment period?</p>
-                <img src= "https://unsplash.it/80/80"/>
+                <img class="icon" src= "https://unsplash.it/80/80"/>
+                <form action="index.html" method="post">
+                <label for="period">What's the length of your repayment period (in years)?</label>
+                <input type="number" id="period" name="loan_period"  required 
+                    min="o" step="1" max="50">
+                </form>
           </div>
           <div class="right">
-            <p>Select your interest rate</p>
-            <img src= "https://unsplash.it/80/80" />
+            <img class="icon" src= "https://unsplash.it/80/80" />
+            <form action="index.html" method="post">
+            <label for="rate">Select your interest rate</label>
+            <input type="number" id="rate" name="interest_rate"  required 
+                    min="o" step="0.1" max="20">
+                </form>
         </div>
     </span>
         <div class="under">
+            <img class="icon" src= "https://unsplash.it/80/80" />
             <p>This will be your monthly payment</p>
-            <img src= "https://unsplash.it/80/80" />
+            
             <details>
+                <span class="container">
+                <img class="icon" src= "https://unsplash.it/80/80" />
                 <p class="sub">Total repayment amount</p>
+                <img class="icon" src= "https://unsplash.it/80/80" />
                 <p class="sub">Total interest paid</p>
+                </span>
             </details>
         </div>
         </section>
-    </body>
+    </main>
 </body>
+<script src="scripts.js"></script>
 </html>
