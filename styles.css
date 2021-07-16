@@ -3,14 +3,25 @@
 }
 
 .header{
-  background-image: url('https://ee-library.kaplanprofessional.com/Blog/Articles/KREE_RC_Horizontal_Images_-_July_2017/Real_estate_for_sale_signs_870x332.jpg');
+  background: url('https://ee-library.kaplanprofessional.com/Blog/Articles/KREE_RC_Horizontal_Images_-_July_2017/Real_estate_for_sale_signs_870x332.jpg') right top;
   background-size: contain;
-  background-position: right top;
+  background-repeat: repeat-x;
+  /*background-position: right top;
   background-repeat: no-repeat;
-  overflow: hidden;
-  margin:auto;
+  /*overflow: hidden;*/
+  margin: 0 auto;
+  background-position: bottom;
   width: 100%;
   min-height: 40vh;
+  height: auto;
+}
+
+input{
+  width: 50%;
+}
+
+section {
+  margin: 0 auto;
 }
 
 .main-nav{
@@ -75,11 +86,6 @@ img :not(:first-child){
     transform: rotate(340deg);
     max-width: 25%;
     max-height: 25%;
-  }
-  
-  body{
-    margin: 20px auto;
-    width: 85%;
   }
 
   .icon{

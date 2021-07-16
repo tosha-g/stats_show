@@ -41,11 +41,14 @@
         </span>
             <div class="under">
                 <img class="icon" src= "https://unsplash.it/80/80" />
+                <br><button id='calcButton' type="submit">Calculate!</button>
                 <p>This is how much you'll need to borrow</p>
+                <p id="needToBorrow">&nbsp;</p>
                 
                 <details>
                      <img class="icon" src= "https://unsplash.it/80/80" />
                      <p class="sub">Percent of total cost</p>
+                     <p id="needToBorrowPercent">&nbsp;</p>
                      
                 </details>
             </div>
@@ -63,22 +66,27 @@
           <div class="right">
             <img class="icon" src= "https://unsplash.it/80/80" />
             <form action="index.html" method="post">
-            <label for="rate">Select your interest rate</label>
+            <label for="rate">Select your interest rate (%)</label><br>
             <input type="number" id="rate" name="interest_rate"  required 
                     min="o" step="0.1" max="20">
+    
                 </form>
         </div>
     </span>
         <div class="under">
+            <button id='calcButtonTwo' type="submit">Calculate!</button>
             <img class="icon" src= "https://unsplash.it/80/80" />
             <p>This will be your monthly payment</p>
-            
+            <p id="monthlyPayment">&nbsp;</p>
+
             <details>
                 <span class="container">
                 <img class="icon" src= "https://unsplash.it/80/80" />
                 <p class="sub">Total repayment amount</p>
+                <p id="totalPayment">&nbsp;</p>
                 <img class="icon" src= "https://unsplash.it/80/80" />
                 <p class="sub">Total interest paid</p>
+                <p id="totalIntPayment">&nbsp;</p>
                 </span>
             </details>
         </div>
