@@ -127,7 +127,12 @@ img :not(:first-child){
     width: 50% auto;
     display: block;
   }
-/*Media Queries*/
+
+  fieldset{
+    border: none;
+  }
+
+  /*Media Queries*/
 
 @media screen and (min-width:720px) {
   .container{

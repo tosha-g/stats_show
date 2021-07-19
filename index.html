@@ -19,29 +19,27 @@
             </ul>
     </header>
     <main>
-        <section id="top">
+        <form action="index.html" method="get">
+        <section id="top"> 
+            <fieldset>
             <span class="container">
             <div class="left ">
                 <img class="icon" src= "https://unsplash.it/80/80" /> 
-                <label for="down">How much is your down payment?</label>
-                <form action="index.html" method="post">
+                    <label for="down">How much is your down payment?</label>
                     <input type="number" id="down" name="down" required 
                     min="1000" step="500">
-                </form>
 
             </div>
             <div class="right">
                 <img class="icon" src= "https://unsplash.it/80/80" />
                 <label for="home"> What's the cost of your home?</label>
-                <form action="index.html" method="post">
                 <input type="number" id="home" name="home_cost" required 
                     min="1000" step="500">
-                </form>
             </div>
         </span>
             <div class="under">
                 <img class="icon" src= "https://unsplash.it/80/80" />
-                <br><button id='calcButton' type="submit">Calculate!</button>
+                <br><button id='calcButton' type="button">Calculate!</button>
                 <p>This is how much you'll need to borrow</p>
                 <p id="needToBorrow">&nbsp;</p>
                 
@@ -49,32 +47,28 @@
                      <img class="icon" src= "https://unsplash.it/80/80" />
                      <p class="sub">Percent of total cost</p>
                      <p id="needToBorrowPercent">&nbsp;</p>
-                     
                 </details>
             </div>
+        </fieldset>
        </section>
        <section>
+           <fieldset>
         <span class="container">
            <div class="left">
                 <img class="icon" src= "https://unsplash.it/80/80"/>
-                <form action="index.html" method="post">
                 <label for="period">What's the length of your repayment period (in years)?</label>
                 <input type="number" id="period" name="loan_period"  required 
                     min="o" step="1" max="50">
-                </form>
           </div>
           <div class="right">
             <img class="icon" src= "https://unsplash.it/80/80" />
-            <form action="index.html" method="post">
             <label for="rate">Select your interest rate (%)</label><br>
             <input type="number" id="rate" name="interest_rate"  required 
                     min="o" step="0.1" max="20">
-    
-                </form>
         </div>
     </span>
         <div class="under">
-            <button id='calcButtonTwo' type="submit">Calculate!</button>
+            <button id='calcButtonTwo' type="button">Calculate!</button>
             <img class="icon" src= "https://unsplash.it/80/80" />
             <p>This will be your monthly payment</p>
             <p id="monthlyPayment">&nbsp;</p>
@@ -90,7 +84,9 @@
                 </span>
             </details>
         </div>
+    </fieldset>
         </section>
+        </form>
     </main>
 </body>
 <script src="scripts.js"></script>
