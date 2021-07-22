@@ -1,9 +1,15 @@
 
+/*For USD number formatting*/
+let formatter = new Intl.NumberFormat('en-US',{
+    style: "currency",
+    currency: 'USD'
+});
+
 let borrowfill = document.getElementById('needToBorrow');
-let homeCost = document.getElementById('home').value;
-let downPayment = document.getElementById('down').value;
+let homeCostInput = document.getElementById('home');
+let downPaymentInput = document.getElementById('down');
 function getborrowAmount(type = 0){
-    let borrowAmount = (homeCost - downPayment).toPrecision();
+    let borrowAmount = (homeCostInput.value - downPaymentInput.value);
 if(type === 0){
 borrowfill.innerHTML = '$' + borrowAmount.toLocaleString();
 } else {
@@ -13,9 +19,8 @@ borrowfill.innerHTML = '$' + borrowAmount.toLocaleString();
 
 let borrowpercentfill = document.getElementById('needToBorrowPercent');
 function getborrowPercent(){
-    getborrowAmount();
-    let borrowPercent = (getborrowAmount(1) / homeCost * 100).toPrecision();
-    borrowpercentfill.innerHTML = borrowPercent + '%';
+    let borrowPercent = (getborrowAmount(1) / homeCostInput.value * 100);
+    borrowpercentfill.textContent = borrowPercent.toPrecision(3)+ '%';
 }
 
 function allTopFunctions(){
@@ -25,12 +30,13 @@ function allTopFunctions(){
 
 document.getElementById('calcButton').addEventListener('click', allTopFunctions)
 
-let number_of_payments = document.getElementById('period').value * 12;
+let years_of_payments = document.getElementById('period');
+let number_of_payments;
 
 let monthlyFill = document.getElementById('monthlyPayment');
 function pmt(/*rate_per_period, number_of_payments,present_value, future_value, type*/){
-    let rate_per_period = ((document.getElementById('rate').value)/100/12).toPrecision(2);
-    let number_of_payments = (document.getElementById('period').value * 12).toPrecision(2);
+    let rate_per_period = ((document.getElementById('rate').value)/100/12);
+    number_of_payments = years_of_payments.value * 12;
     let present_value = getborrowAmount(1); 
     let future_value = 0;
     let type = 1;
@@ -38,34 +44,39 @@ function pmt(/*rate_per_period, number_of_payments,present_value, future_value, 
     if (rate_per_period != 0.0){
             /* Interest rate exists*/
             let q = Math.pow(1 + rate_per_period, number_of_payments);
-            monthlyFill.innerHTML = '$' + ((rate_per_period * (future_value + (q * present_value))) / ((-1 + q) * (1 + rate_per_period * (type)))).toPrecision();
-    
+            /*monthlyFill.innerHTML = '$' + ((rate_per_period * (future_value + (q * present_value))) / ((-1 + q) * (1 + rate_per_period * (type)))).toPrecision();
+    */
+   monthlyAmount = ((rate_per_period * (future_value + (q * present_value))) / ((-1+q) * (1 + rate_per_period * (type))));
+
         } else if(number_of_payments != 0.0){
             /*No interest rate, but number of payments exists*/
-            monthlyFill.innerHTML = '$' + ((future_value + present_value) / number_of_payments).toPrecision();
-        }
+            /*monthlyFill.innerHTML = '$' + ((future_value + present_value) / number_of_payments).toPrecision();
+        }*/
+        monthlyAmount = ((future_value + present_value) / number_of_payments);
+        monthlyFill.textContent = formatter.format(monthlyAmount);
+        return monthlyAmount;
+    }
 }
 
 let totalFill = document.getElementById('totalPayment');
-let total = monthlyAmount * number_of_payments;
-function getTotalPayment(){
-    pmt();
-    totalFill.innerHTML = '$' +  total.toLocaleString();
+function getTotalPayment(monthlyAmount){
+    let totalOfPayments = monthlyAmount * number_of_payments;
+    totalFill.textContent = formatter.format(totalOfPayments);
+    return totalOfPayments;
 }
 
 let intFill = document.getElementById('totalIntPayment');
-let int = total - borrowAmount;
-function getIntPayment(){
-    getTotalPayment;
-    getborrowAmount();
-    intFill.innerHTML = '$' + int.toLocaleString(); 
+
+function getIntPayment(totalOfPayments){
+let amountBorrowed = getborrowAmount(1);
+let totalInterest = totalOfPayments - amountBorrowed;
+    intFill.textContent = formatter.format(totalInterest); 
 }
 
 function allBottomFunctions(){
-    pmt();
-    getTotalPayment();
-    getIntPayment();
+    let monthlyAmount = pmt();
+    let totalOfPayments = getTotalPayment(monthlyAmount);
+    getIntPayment(totalOfPayments);
 }
 
-document.getElementById('calcButtonTwo').addEventListener('click', allBottomFunctions)
-
+document.getElementById('calcButtonTwo').addEventListener('click', allBottomFunctions);
