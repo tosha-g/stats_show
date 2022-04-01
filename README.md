@@ -27,4 +27,10 @@ plt.style.use('ggplot')
    - There is one function created here called get_user_input for the master loop discussed in bullet one above. In addition, the .describe() method is used in cell 5 to get descriptives statistics about the stars and price columnes. In cells 6 and 9 respectively, the .unique() and .value_counts() methods are used to extract from the data the names of unique customers and how many orders each processed. This information is then used as the output in the master input loop once the user inputs a customer name.  
 2. Category 2: Utilize External Data:
    - This file used thes the .read_csv() method in the Pandas library to read data from an external CSV file (logbook.csv).This is the basis for the data analysis in the rest of the project. 
+3. Category 3: Data Display
+   - In cell 10, there is a scatterplot visualization that shows the spread of star ratings per customer (X axis) and per price range (Y axis). The plotted points are both color coordinated and sized differently depending on their star value. The legend can be seen on the top right. Additionally, cell 11 shows a bar graph with error bars to show the average star value per customer. These are two separate views that provide different insights. The bar chart makes seeing the average star value very simple to see. However, some of the customers have a lot of variance. In that case, the scatterplot above helps show the spread of values.
+4. “STRETCH” FEATURE LIST:
+   - This project uses a Jupyter notebook to display the data analysis.
+
+
 
